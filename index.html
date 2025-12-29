@@ -60,7 +60,7 @@
 </head>
 <body>
     <div id="root"></div>
-    <!-- Vite will transform this into the correctly hashed bundled JS path during the build process -->
-    <script type="module" src="/index.tsx"></script>
+    <!-- Using a relative path (./) allows Vite to find and bundle the TSX file during 'npm run build' -->
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>
