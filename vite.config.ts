@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   return {
     plugins: [react()],
-    // Changed base to match repository name for GitHub project pages
+    // This must match your GitHub repository name exactly
     base: '/TRON-PONG/', 
     define: {
       'process.env.API_KEY': JSON.stringify(env.VITE_API_KEY || env.API_KEY)
