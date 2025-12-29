@@ -60,7 +60,8 @@
 </head>
 <body>
     <div id="root"></div>
-    <!-- Using a relative path (./) allows Vite to find and bundle the TSX file during 'npm run build' -->
-    <script type="module" src="./index.tsx"></script>
+    <!-- Vite requires a root-relative path (/index.tsx) to correctly bundle the app for production. 
+         Vite will replace this tag with the bundled JS file in the 'dist' folder. -->
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
