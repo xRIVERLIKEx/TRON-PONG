@@ -1,4 +1,3 @@
-
 import { GoogleGenAI } from "@google/genai";
 
 const FALLBACK_QUOTES = [
@@ -20,11 +19,10 @@ const FALLBACK_QUOTES = [
 ];
 
 export const getCommentary = async (event: string, p1Score: number, p2Score: number): Promise<string> => {
-  // Fix: Use the required named parameter and access process.env.API_KEY directly as per guidelines
+  // Create a new instance right before use to ensure the most current API key is utilized
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
   try {
-    // Fix: Use ai.models.generateContent directly with model name and content prompt
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: `You are the MCP (Master Control Program) from the TRON universe. 
@@ -35,15 +33,13 @@ export const getCommentary = async (event: string, p1Score: number, p2Score: num
       Max 15 words.`,
     });
 
-    // Fix: Access the .text property directly (it is a getter, not a method)
     const text = response.text;
     if (!text) throw new Error("Empty response");
     return text.trim();
 
   } catch (error: any) {
-    console.warn("Gemini API unavailable or limited, using fallback protocol.", error);
+    console.warn("MCP communication link unstable. Reverting to local fallback buffer.", error);
     
-    // If it's a 429 or any error, we return a high-quality fallback to maintain immersion
     const randomIndex = Math.floor(Math.random() * FALLBACK_QUOTES.length);
     return FALLBACK_QUOTES[randomIndex];
   }
