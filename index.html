@@ -52,16 +52,16 @@
     "react/": "https://esm.sh/react@^19.2.3/",
     "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
     "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "peerjs": "https://esm.sh/peerjs@^1.5.5",
     "vite": "https://esm.sh/vite@^7.3.0",
-    "peerjs": "https://esm.sh/peerjs@^1.5.5"
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
 <body>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+    <!-- Fixed: Use relative path for Vite entry point to support GitHub Pages subfolders -->
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>
