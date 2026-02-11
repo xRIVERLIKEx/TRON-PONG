@@ -37,6 +37,7 @@
             position: absolute;
             bottom: 100%;
             animation: scanline 10s linear infinite;
+            pointer-events: none;
         }
         @keyframes scanline {
             0% { bottom: 100%; }
@@ -57,11 +58,11 @@
   }
 }
 </script>
+<link rel="stylesheet" href="/index.css">
 </head>
 <body>
     <div id="root"></div>
-    <!-- Vite requires a root-relative path (/index.tsx) to correctly bundle the app for production. 
-         Vite will replace this tag with the bundled JS file in the 'dist' folder. -->
+    <!-- Vite handles the transformation of this file. Do not use importmaps with Vite. -->
     <script type="module" src="/index.tsx"></script>
 </body>
 </html>
